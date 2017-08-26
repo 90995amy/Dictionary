@@ -9,22 +9,22 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  TextInput
 } from 'react-native';
 
 export default class Dictionary extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
+        <TextInput 
+          style = {styles.welcome}
+          placeholder = "Enter a word"
+          onChangeText = { (text) => this.setState(text)}
+        />
+        
         <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
+          this.state.text
         </Text>
       </View>
     );
