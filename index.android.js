@@ -30,7 +30,7 @@ export default class Dictionary extends Component {
           style = {styles.welcome}
           placeholder = "Enter a word"
           onChangeText = {(word) => this.setState({input : word})}
-          onSubmitEditing = {this.showMeaning} 
+          onSubmitEditing = {this.showMeaning.bind(this)} 
         />
         
         <Text style={styles.instructions}>
