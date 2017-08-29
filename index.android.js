@@ -44,6 +44,14 @@ export default class Dictionary extends Component {
     };
   }
   
+  showMeaning() {
+	const meaning = this.state.input in dictionary ?
+				  dictionary[this.state.input] :
+				  "Not Found"
+	alert(meaning)
+	this.setState({output : meaning})
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -61,13 +69,6 @@ export default class Dictionary extends Component {
     );
   }
 
-  showMeaning() {
-    const meaning = this.state.input in dictionary ?
-                  dictionary[this.state.input] :
-                  "Not Found"
-    alert(meaning)
-    this.setState({output : meaning})
-  }
   
 }
 
