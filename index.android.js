@@ -13,34 +13,52 @@ import {
   TextInput
 } from 'react-native';
 
+var dictionary = require("./dictionary.json")
+
 export default class Dictionary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      input : "",
+      output : "",
+    };
+  }
   render() {
     return (
       <View style={styles.container}>
         <TextInput 
           style = {styles.welcome}
           placeholder = "Enter a word"
-          onChangeText = { (text) => this.setState(text)}
+          onChangeText = {(word) => this.setState({input : word})}
+          onSubmitEditing = {this.showMeaning} 
         />
         
         <Text style={styles.instructions}>
-          this.state.text
+         { this.state.output}
         </Text>
       </View>
     );
   }
+  showMeaning() {
+    var meaning = this.state.input in dictionary ?
+                  dictionary[this.state.input] :
+                  "Not Found"
+    alert(meaning)
+    this.setState({output : meaning})
+  }
+  
 }
+
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
+   // alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
   welcome: {
     fontSize: 20,
-    textAlign: 'center',
     margin: 10,
   },
   instructions: {
