@@ -13,7 +13,7 @@ import {
   TextInput
 } from 'react-native';
 
-const dictionary =  { 'apple': 'A for apple. It sucks.' } //require("./dictionary.json")
+const dictionary = require("./dictionary.json")
 
 const styles = StyleSheet.create({
 	container: {
