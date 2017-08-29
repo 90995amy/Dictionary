@@ -45,7 +45,6 @@ export default class Dictionary extends Component {
   }
   
   render() {
-	console.log(this.showMeaning.bind(this))
     return (
       <View style={styles.container}>
         <TextInput 
